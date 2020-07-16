@@ -29,27 +29,27 @@ max_evs<-read_csv("max_evs.csv")
 
 # Prior to this step I arranged the players by name and season, and then I
 # arranged by launch angle. Their were 2376 player-seasons in the dataset
-
-for (j in 1:2376) {
-  player <-player_season%>%
-     filter(player_number == j)
-   
-   x = tibble()
-
-
-
-  for (i in 1:(nrow(player)-round((nrow(player)/8)))) {
-     y<-player%>%
-             slice(i:(i+round((nrow(player)/8))))%>%
-       mutate(avg_ev = mean(launch_speed),
-              avg_la = mean(launch_angle))
-     
-     x<-x%>%bind_rows(y)%>%
-       filter(avg_ev == max(avg_ev))
-   
-   }
-   max_evs<-max_evs%>%bind_rows(x)
-}
+# 
+# for (j in 1:2376) {
+#   player <-player_season%>%
+#      filter(player_number == j)
+#    
+#    x = tibble()
+# 
+# 
+# 
+#   for (i in 1:(nrow(player)-round((nrow(player)/8)))) {
+#      y<-player%>%
+#              slice(i:(i+round((nrow(player)/8))))%>%
+#        mutate(avg_ev = mean(launch_speed),
+#               avg_la = mean(launch_angle))
+#      
+#      x<-x%>%bind_rows(y)%>%
+#        filter(avg_ev == max(avg_ev))
+#    
+#    }
+#    max_evs<-max_evs%>%bind_rows(x)
+# }
 
 
 
