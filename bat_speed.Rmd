@@ -130,7 +130,8 @@ $vbat = (ev - ea*vball)/(1+ea)$
 ##Highest Bat Speeds 
 
 ```{r Calculating bat speed}
-
+max_evs<-read_csv("max_evs.csv")%>%
+  distinct()
 
 swing_speeds_all<-max_evs%>%
   
